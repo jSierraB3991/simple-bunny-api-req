@@ -4,4 +4,5 @@ import bunnyrequestrest "github.com/jSierraB3991/simple-bunny-api-req/infrastruc
 
 type BunnyRequestServiceInterface interface {
 	CreateVideoLibrary(nameVideoLIbrary string) (*bunnyrequestrest.CreateVideoLibraryResponse, error)
+	CreateCollection(libraryId uint, videoLibraryApiKey, collectionName string) (*bunnyrequestrest.CreateCollectionResponse, error)
 }
