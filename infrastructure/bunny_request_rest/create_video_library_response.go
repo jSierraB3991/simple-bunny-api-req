@@ -85,5 +85,5 @@ type CreateVideoLibraryResponse struct {
 	PremiumEncodingPriceOverride            *int             `json:"PremiumEncodingPriceOverride"`
 	MonthlyChargesTranscribing              float32          `json:"MonthlyChargesTranscribing"`
 	MonthlyChargesPremiumEncoding           float32          `json:"MonthlyChargesPremiumEncoding"`
-	MonthlyChargesEnterpriseDrm             int              `json:"MonthlyChargesEnterpriseDrm"`
+	MonthlyChargesEnterpriseDrm             float32          `json:"MonthlyChargesEnterpriseDrm"`
 }
