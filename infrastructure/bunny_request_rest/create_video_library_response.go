@@ -79,7 +79,7 @@ type CreateVideoLibraryResponse struct {
 	JitEncodingEnabled                      bool             `json:"JitEncodingEnabled"`
 	EncodingTier                            int              `json:"EncodingTier"`
 	OutputCodecs                            string           `json:"OutputCodecs"`
-	DrmBasePriceOverride                    int              `json:"DrmBasePriceOverride"`
+	DrmBasePriceOverride                    float32          `json:"DrmBasePriceOverride"`
 	DrmCostPerLicenseOverride               *int             `json:"DrmCostPerLicenseOverride"`
 	TranscribingPriceOverride               *int             `json:"TranscribingPriceOverride"`
 	PremiumEncodingPriceOverride            *int             `json:"PremiumEncodingPriceOverride"`
