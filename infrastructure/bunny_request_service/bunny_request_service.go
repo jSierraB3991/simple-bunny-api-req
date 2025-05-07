@@ -1,5 +1,7 @@
 package bunnyrequestservice
 
+import jsierralibs "github.com/jSierraB3991/jsierra-libs"
+
 type BunnyRequestService struct {
 	bunnyApiKeyAuth string
 
@@ -15,6 +17,13 @@ func NewBunnyRequestService(bunnyApiKeyAuth string,
 		bunnyApiKeyAuth: bunnyApiKeyAuth,
 		videoLibraryUrl: videoLibraryUrl,
 		videoCdnUrl:     videoCdnUrl,
+	}
+}
+
+func (s *BunnyRequestService) GetHeaderApiKey() jsierralibs.HeaderRequest {
+	return jsierralibs.HeaderRequest{
+		Key:   "AccessKey",
+		Value: s.bunnyApiKeyAuth,
 	}
 }
 
@@ -94,5 +103,20 @@ func NewBunnyRequestService(bunnyApiKeyAuth string,
 		PUT /library/{libraryId}/videos/{videoGuid}
 		AUTHORIZATION == RESPOONSE OF VIDEO LIBRARY API KEY
 		BINARY BY BODY => file
+
+
+
+	https://vz-580df404-944.b-cdn.net/13daffd7-e78d-4936-8521-77740e2cc734/playlist.m3u8
+
+	<div style="position:relative;padding-top:56.25%;">
+		<iframe
+			src="https://iframe.mediadelivery.net/embed/421874/13daffd7-e78d-4936-8521-77740e2cc734?autoplay=true&loop=false&muted=false&preload=true&responsive=true"
+				loading="lazy"
+				style="border:0;position:absolute;top:0;height:100%;width:100%;"
+				allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
+				allowfullscreen="true">
+		</iframe>
+	</div>
+
 
 */
