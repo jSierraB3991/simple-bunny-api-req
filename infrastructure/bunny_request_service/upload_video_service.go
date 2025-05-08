@@ -9,11 +9,11 @@ import (
 	bunnyrequestrest "github.com/jSierraB3991/simple-bunny-api-req/infrastructure/bunny_request_rest"
 )
 
-func (s *BunnyRequestService) UploadVideoService(file *multipart.FileHeader, libraryId, videoCount uint, librartName, videoGuid string) (*bunnyrequestrest.UploadVideoResponse, error) {
+func (s *BunnyRequestService) UploadVideoService(file *multipart.FileHeader, libraryId, videoCount uint, librartName, videoGuid, videoLibraryApiKey string) (*bunnyrequestrest.UploadVideoResponse, error) {
 	var result bunnyrequestrest.UploadVideoResponse
 	file.Filename = string(librartName) + "_" + jsierralibs.GetStringUNumberFor(videoCount)
 
-	headers := []jsierralibs.HeaderRequest{s.GetHeaderApiKey()}
+	headers := []jsierralibs.HeaderRequest{s.GetHeaderApiKey(videoLibraryApiKey)}
 
 	err := jsierralibs.PostFile(s.videoCdnUrl, fmt.Sprintf(bunnyrequestlibs.UPLOAD_VIDEO_URL, libraryId, videoGuid), file, &result, headers)
 	if err != nil {

@@ -21,7 +21,7 @@ func (s *BunnyRequestService) CreateVideoLibrary(nameVideoLIbrary string) (*bunn
 		fmt.Println("Error marshalling JSON:", err)
 		return nil, err
 	}
-	headers := []jsierralibs.HeaderRequest{{Key: "AccessKey", Value: s.bunnyApiKeyAuth}}
+	headers := []jsierralibs.HeaderRequest{s.GetHeaderApiKey(s.bunnyApiKeyAuth)}
 
 	err = jsierralibs.Post(s.videoLibraryUrl, bunnyrequestlibs.CREATE_VIDEO_LIBREY_URI, jsonData, &result, headers)
 	if err != nil {

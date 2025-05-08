@@ -13,7 +13,7 @@ import (
 func (s *BunnyRequestService) CreateCollection(libraryId uint, videoLibraryApiKey, collectionName string) (*bunnyrequestrest.CreateCollectionResponse, error) {
 	var result bunnyrequestrest.CreateCollectionResponse
 
-	headers := []jsierralibs.HeaderRequest{s.GetHeaderApiKey()}
+	headers := []jsierralibs.HeaderRequest{s.GetHeaderApiKey(videoLibraryApiKey)}
 
 	body := bunnyrequestrequest.CreateCollectionRequest{
 		Name: collectionName,

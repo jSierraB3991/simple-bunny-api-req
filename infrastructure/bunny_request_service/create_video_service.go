@@ -10,7 +10,7 @@ import (
 	bunnyrequestrest "github.com/jSierraB3991/simple-bunny-api-req/infrastructure/bunny_request_rest"
 )
 
-func (s *BunnyRequestService) CreateVideoService(titleVideo, collectionId string, thumbnailInMs *int, libraryId uint) (*bunnyrequestrest.CreateVideoResponse, error) {
+func (s *BunnyRequestService) CreateVideoService(titleVideo, collectionId, videoLibraryApiKey string, thumbnailInMs *int, libraryId uint) (*bunnyrequestrest.CreateVideoResponse, error) {
 	var result bunnyrequestrest.CreateVideoResponse
 
 	req := bunnyrequestrequest.CreateVideoRequest{
@@ -23,7 +23,7 @@ func (s *BunnyRequestService) CreateVideoService(titleVideo, collectionId string
 		return nil, err
 	}
 
-	headers := []jsierralibs.HeaderRequest{s.GetHeaderApiKey()}
+	headers := []jsierralibs.HeaderRequest{s.GetHeaderApiKey(videoLibraryApiKey)}
 
 	err = jsierralibs.Post(s.videoCdnUrl, fmt.Sprintf(bunnyrequestlibs.CREATE_VIDEO_URL, libraryId), jsonData, &result, headers)
 	if err != nil {

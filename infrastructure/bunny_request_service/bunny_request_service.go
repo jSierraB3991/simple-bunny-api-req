@@ -20,10 +20,10 @@ func NewBunnyRequestService(bunnyApiKeyAuth string,
 	}
 }
 
-func (s *BunnyRequestService) GetHeaderApiKey() jsierralibs.HeaderRequest {
+func (s *BunnyRequestService) GetHeaderApiKey(apikey string) jsierralibs.HeaderRequest {
 	return jsierralibs.HeaderRequest{
 		Key:   "AccessKey",
-		Value: s.bunnyApiKeyAuth,
+		Value: apikey,
 	}
 }
 
